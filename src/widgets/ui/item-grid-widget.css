@@ -1,0 +1,69 @@
+.ItemGridWidget-grid {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(160px, 1fr) );
+    grid-gap: 5px;
+}
+.ItemGridWidget-list {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.ItemGrid-Item__grid {
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 7px;
+}
+.ItemGrid-Item__grid-Logo {
+    width : 40%;
+    height: 40%;
+    margin: 1rem;
+}
+.ItemGrid-Item__list {
+    border-top: 1px solid #dfdfdf;
+    background-color: #fff;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+.ItemGrid-Item__list:first-child {
+    border: none;
+}
+.ItemGrid-Item__list-Logo {
+    margin: 5px 1rem;
+    width : 10%;
+    height: 10%;
+}
+.ItemGrid-Item-name {
+    font-weight: bold;
+    font-size: large;
+}
+.ItemGrid-Item-symbol,
+.ItemGrid-Item-priceBTC,
+.ItemGrid-Item-priceUSD {
+    
+}
+.ItemGrid-Item-marketCap {
+    color: #999;
+    font-size: small;
+}
+
+.ItemGrid-Item__grid > .ItemGrid-Item-rank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: #ddd;
+    width:2rem;
+    height: 2rem;
+    border-radius: 100%;
+    top: .5rem;
+    left: .5rem;
+}
