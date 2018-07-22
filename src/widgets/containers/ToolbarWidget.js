@@ -10,12 +10,11 @@ class ToolbarWidget extends Component {
         return(
             <Toolbar>
                 <div className = "left">
-                    <ToolbarButton icon="md-account" />
+                    &nbsp;
                 </div>
                 <div className = "center">{ title }</div>
                 <div className = "right">
                     { this.props.renderRight() }
-                    <ToolbarButton icon="md-more-vert"/>
                 </div>
             </Toolbar>
         )

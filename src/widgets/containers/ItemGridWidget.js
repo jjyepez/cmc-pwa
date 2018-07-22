@@ -32,7 +32,7 @@ import '../ui/item-grid-widget.css'
 },*/
 class ItemGridWidget extends Component {
     render(){
-        const { data, listType } = this.props
+        const { data, listType, convert } = this.props
         const arrData = Object.keys( data ) // --- por si llega como json en lugar de array
         return (
             <div className = {`ItemGridWidget-${listType}`}>
@@ -43,7 +43,7 @@ class ItemGridWidget extends Component {
                                 className = { `ItemGrid-Item__${listType}` }
                                 key = { `${el.id}` }
                             >
-                                <div className = "ItemGrid-Item-rank">{el.rank}</div>
+                                <div className = "ItemGrid-Item-rank" data-rank = {el.rank}>{el.rank}</div>
                                 <img 
                                     className = { `ItemGrid-Item__${listType}-Logo` }
                                     alt = { el.symbol }
@@ -51,9 +51,8 @@ class ItemGridWidget extends Component {
                                 />
                                 <div className = "ItemGrid-Item-name">{el.name}</div>
                                 <div className = "ItemGrid-Item-symbol">{el.symbol}</div>
-                                <div className = "ItemGrid-Item-priceUSD">{el.quotes.USD.price}</div>
-                                <div className = "ItemGrid-Item-priceBTC">{el.quotes.BTC.price}</div>
-                                <div className = "ItemGrid-Item-marketCap">{el.quotes.USD.market_cap}</div>
+                                <div className = "ItemGrid-Item-price">{ convert === 'USD' ? '$ ' : 'Ƀ ' }{ el.quotes[convert].price.toFixed( convert === 'USD' ? 2 : 4 ).replace(/\d(?=(\d{3})+\.)/g, '$&,') }</div>
+                                <div className = "ItemGrid-Item-marketCap">~$ { (el.quotes.USD.market_cap/1000000).toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,') } MM</div>
                             </div>
                         )
                     }

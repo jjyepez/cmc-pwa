@@ -14,7 +14,8 @@
     "dev": "react-scripts start",
     "start": "serve ./build -s -p ${PORT:-4000}",
     "build": "react-scripts build",
-    "prod": "npm run build && npm start",
+    "prod" : "npm run build && npm start",
+    "https": "./tools/ngrok http 4000",
     "eject": "react-scripts eject"
   }
 }

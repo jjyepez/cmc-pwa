@@ -14,7 +14,8 @@ class Home extends Component {
     state = {
         data: {},
         listType: 'grid',
-        interval: 60*1000
+        interval: 60*1000,
+        convert: 'USD'
     }
     componentWillMount = () => {
         this.cargarDatos()
@@ -37,13 +38,12 @@ class Home extends Component {
 
     }
     toggleView = listType  => {
-        console.log( listType )
         this.setState({
             listType
         })
     }
     render(){
-        const { data, listType } = this.state
+        const { data, listType, convert } = this.state
         return (
             <Page
                 renderToolbar = { () => (
@@ -61,6 +61,7 @@ class Home extends Component {
             >
                 <ItemGridWidget 
                     listType = { listType }
+                    convert  = { convert }
                     data     = { data }
                 />
             </Page>
